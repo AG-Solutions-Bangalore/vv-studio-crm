@@ -1,0 +1,266 @@
+@import 'tailwindcss';
+
+@layer base {
+  :root {
+    --font-heading: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+:root {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1A1817;
+  background-color: #FAF8F5;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  min-width: 100%;
+  background-color: #FAF8F5;
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #FAF8F5;
+  color: #1A1817;
+}
+
+.font-display,
+.font-heading {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  letter-spacing: -0.015em;
+}
+
+.font-sans,
+.font-body {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ── Custom Sleek Scrollbars ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4F1EA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8D2C5;
+  border-radius: 9999px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B8B0A0;
+}
+
+/* ── Input Placeholder Styling ── */
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  color: #9C9488 !important;
+}
+
+/* ── Micro-Animations & Keyframes ── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes subtleShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-modal-pop {
+  animation: modalPop 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Global CRM Utility Classes ── */
+.crm-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E8E3DA;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(26, 24, 23, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.crm-card-hover {
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.crm-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px -4px rgba(26, 24, 23, 0.08), 0 2px 6px -2px rgba(26, 24, 23, 0.04);
+  border-color: #DDD7CD;
+}
+
+.crm-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #1A1817;
+  color: #FAF8F5;
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.55rem 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.crm-btn-primary:hover {
+  background-color: #2E2A27;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px -2px rgba(26, 24, 23, 0.12);
+}
+.crm-btn-primary:active {
+  transform: scale(0.97);
+}
+
+.crm-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #FFFFFF;
+  color: #4A443D;
+  border: 1px solid #E2DDD5;
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.crm-btn-secondary:hover {
+  background-color: #FAF8F5;
+  color: #1A1817;
+  border-color: #D8D2C5;
+}
+.crm-btn-secondary:active {
+  transform: scale(0.97);
+}
+
+.crm-input-focus {
+  transition: all 0.18s ease;
+}
+.crm-input-focus:focus {
+  outline: none;
+  border-color: #C99C4B;
+  box-shadow: 0 0 0 3px rgba(201, 156, 75, 0.15);
+  background-color: #FFFFFF;
+}
+
+/* ── CKEditor 4 Custom Theme & Layout ── */
+.ckeditor4-wrapper .cke {
+  border: 1px solid #E2DDD5 !important;
+  border-radius: 0.75rem !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+
+.ckeditor4-wrapper .cke_top {
+  background: #FAF8F5 !important;
+  border-bottom: 1px solid #E2DDD5 !important;
+  padding: 6px 8px !important;
+}
+
+.ckeditor4-wrapper .cke_bottom {
+  background: #FAF8F5 !important;
+  border-top: 1px solid #E2DDD5 !important;
+}
+
+.ckeditor4-wrapper .cke_contents {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif !important;
+  font-size: 13px !important;
+}
+
+/* Hide CKEditor 4 notification banner / popups */
+.cke_notifications_area,
+.cke_notification,
+.cke_notification_warning {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+
