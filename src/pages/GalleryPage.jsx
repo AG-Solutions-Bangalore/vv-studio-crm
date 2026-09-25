@@ -95,7 +95,7 @@ export default function GalleryPage() {
     const rawVal = typeof imageVal === 'string' ? imageVal : (targetObj?.gallery_image || targetObj?.image || targetObj?.file_name || targetObj?.photo || targetObj?.gallery_photo);
     
     if (!rawVal) return noImageUrl || '';
-    const cacheBuster = targetObj?.updated_at ? new Date(targetObj.updated_at).getTime() : (targetObj?.id || '');
+    const cacheBuster = targetObj?.updated_at ? new Date(targetObj.updated_at).getTime() : '';
     if (rawVal.startsWith('http://') || rawVal.startsWith('https://') || rawVal.startsWith('data:') || rawVal.startsWith('blob:')) {
       const sep = rawVal.includes('?') ? '&' : '?';
       return cacheBuster ? `${rawVal}${sep}t=${cacheBuster}` : rawVal;
@@ -115,8 +115,9 @@ export default function GalleryPage() {
       toast.error('Image URL is not available.');
       return;
     }
+    const cleanUrl = url.split('?')[0];
     try {
-      await navigator.clipboard.writeText(url);
+      await navigator.clipboard.writeText(cleanUrl);
       setCopiedId(id);
       toast.success('Image link copied to clipboard!');
       setTimeout(() => setCopiedId(null), 2000);
@@ -124,7 +125,7 @@ export default function GalleryPage() {
       // Fallback if clipboard API fails
       try {
         const textarea = document.createElement('textarea');
-        textarea.value = url;
+        textarea.value = cleanUrl;
         document.body.appendChild(textarea);
         textarea.select();
         document.execCommand('copy');
