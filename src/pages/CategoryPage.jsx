@@ -276,13 +276,13 @@ export default function CategoryPage() {
                 <span>Refresh</span>
               </button>
 
-              {/* <button
+              <button
                 onClick={handleOpenCreate}
                 className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#1A1817] hover:bg-[#2C2825] text-[#FAF8F5] text-[11px] font-medium shadow-2xs transition-all active:scale-95 cursor-pointer"
               >
                 <Plus className="h-3.5 w-3.5 text-[#C99C4B]" />
                 <span>Add Category</span>
-              </button> */}
+              </button>
             </div>
           </div>
 
